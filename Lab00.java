@@ -14,7 +14,7 @@
     - Answers to 7 questions with lists as necessary are printed
     - 
 */
-package Lab00;
+package javaActivities;
 
 public class Lab00 {
     // instance fields

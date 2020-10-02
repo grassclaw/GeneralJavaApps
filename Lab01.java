@@ -15,7 +15,7 @@
     - Part 3: Paragraph provided with quotation formatting
 */
 
-package Lab01;
+package javaActivities;
 
 import java.util.*;
 

@@ -8,16 +8,20 @@
 */
 /*INPUTS SECTION: Scanner utilized for user input
     - named constants --> call on Math.PI
-    - integer variables to hold user input of shape dimensions
-    - string for user choice
+    - User input -->
+        -double: height, length, radius/width
+    - Calculated -->
+        - volume, surface Area
 */
 /*PROCESSING SECTION
-    - Determines if a date is magic (product of month and day = two digit year)
+    - Determines volume and surface area of various 3D shapes as provided
 */
 /*OUTPUTS
     - System output paragraph with inserted answers
-    -Note: Test cases are: 04/11/44; 02/03/06; 02/06/20; 12/03/36
+    -Note: Test cases are:
 ***********************************************************************************************/
+package javaActivities;
+
 import java.util.*;
 
 public class Lab5a {
@@ -86,6 +90,7 @@ public class Lab5a {
 
         }else{
             System.out.println("Error: Invalid choice.");
+            return;
         }
 
 

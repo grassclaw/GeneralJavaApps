@@ -17,7 +17,7 @@
     - Output char method manipulations of string
     -Note: Test cases are: Edmonton, Los Angeles, Toronto, Mexico City
 ***********************************************************************************************/
-package Lab03;
+package javaActivities;
 
 import java.util.Scanner;
 

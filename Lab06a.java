@@ -22,6 +22,7 @@
     - Test cases: 
       --> Part 1: Betty, Alice, Connie / Alice, Connie, Betty / connie, alice, BettY
 ***********************************************************************************************/
+package javaActivities;
 
 import java.util.*;
 

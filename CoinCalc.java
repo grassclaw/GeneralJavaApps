@@ -19,7 +19,7 @@
     - Output formatted list of coins needed for given total.
     -Note: Test cases are cent values: 32, 49, 8
 ***********************************************************************************************/
-package Lab01;
+package javaActivities;
 
 public class CoinCalc {
     public static void main (String[] args){

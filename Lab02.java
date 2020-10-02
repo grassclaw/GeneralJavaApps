@@ -17,7 +17,7 @@
     - Output tax amounts and total purchase price with tax.
     -Note: Test cases are: 39.95, 22.50, 10, 1, 0
 ***********************************************************************************************/
-package Lab02;
+package javaActivities;
 
 import java.util.Scanner;
 

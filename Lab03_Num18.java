@@ -17,7 +17,7 @@
     - Output char method manipulations of string
     -Note: Test cases are: Sue Daniels, 32, Los Angeles, Stanford, Magician, Monkey, Charles
 ***********************************************************************************************/
-package Lab03;
+package javaActivities;
 
 import java.util.*;
 

@@ -18,8 +18,7 @@
     - System output paragraph with inserted answers
     -Note: Test cases are: 04/11/44; 02/03/06; 02/06/20; 12/03/36
 ***********************************************************************************************/
-
-package Lab04;
+package javaActivities;
 
 import java.util.*;
 

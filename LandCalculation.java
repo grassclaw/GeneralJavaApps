@@ -17,7 +17,7 @@
 /*OUTPUTS
     - String output with corresponding square footage to acres
 ***********************************************************************************************/
-package Lab01;
+package javaActivities;
 
 public class LandCalculation {
     public static void main (String[] args) {
