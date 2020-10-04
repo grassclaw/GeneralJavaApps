@@ -83,7 +83,7 @@ public class Lab06a {
                     nameStore2 = name1;
                     nameStore3 = name2;
                 } else {
-                    nameStore2 = name2;
+                    nameStore2 = name2;    
                     nameStore3 = name1;
                 }
             }
