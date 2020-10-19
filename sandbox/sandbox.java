@@ -1,6 +1,6 @@
 // package sandbox;
 
-// // import java.util.*;
+import java.util.*;
 
 // public class sandbox {
 //     // public static void main(String[] args) {
@@ -106,25 +106,67 @@
 
 public class sandbox {
     public static void main(String[] arg) {
-        int iVal = 45;
-        
-        double dVal = 958.367;
-        char cVal = 'A';
-        String sVal = "I am a string";
-        System.out.printf("Integer value: %d\n", iVal);
-        System.out.printf("Integer value field 8: %8d\n", iVal);
-        System.out.printf("Integer value field 08: %08d\n", iVal);
-        System.out.println();
-        System.out.printf(" Double value: %f\n", dVal);
-        System.out.printf(" Double value field 8.1: %8.1f\n", dVal);
-        System.out.printf(" Double value field 08.2: %08.2f\n", dVal);
-        System.out.printf(" Double value field 8.3: %8.3f\n", dVal);
-        System.out.println();
-        System.out.printf("   Char value: %c\n", cVal);
-        System.out.println();
-        System.out.printf(" String value: %s\n", sVal);
-        System.out.printf(" String value: %40s More stuff here\n", "Right justified in field of 40");
-        System.out.printf(" String value: %-40s Yet more stuff\n", "Left justified in field of 40");
-        System.out.println();
+        // int iVal = 45;
+
+        // double dVal = 958.367;
+        // char cVal = 'A';
+        // String sVal = "I am a string";
+        // System.out.printf("Integer value: %d\n", iVal);
+        // System.out.printf("Integer value field 8: %8d\n", iVal);
+        // System.out.printf("Integer value field 08: %08d\n", iVal);
+        // System.out.println();
+        // System.out.printf(" Double value: %f\n", dVal);
+        // System.out.printf(" Double value field 8.1: %8.1f\n", dVal);
+        // System.out.printf(" Double value field 08.2: %08.2f\n", dVal);
+        // System.out.printf(" Double value field 8.3: %8.3f\n", dVal);
+        // System.out.println();
+        // System.out.printf(" Char value: %c\n", cVal);
+        // System.out.println();
+        // System.out.printf(" String value: %s\n", sVal);
+        // System.out.printf(" String value: %40s More stuff here\n", "Right justified
+        // in field of 40");
+        // System.out.printf(" String value: %-40s Yet more stuff\n", "Left justified in
+        // field of 40");
+        // System.out.println();
+        int num;
+        Scanner stdin = new Scanner(System.in);
+        System.out.println("Enter a number in the range of 1 - 10:");
+        num = stdin.nextInt();
+        stdin.close();
+
+        switch (num) {
+            case 1:
+                System.out.println("I");
+                break;
+            case 2:
+                System.out.println("I");
+                break;
+            case 3:
+                System.out.println("I");
+                break;
+            case 4:
+                System.out.println("I");
+                break;
+            case 5:
+                System.out.println("I");
+                break;
+            case 6:
+                System.out.println("I");
+                break;
+            case 7:
+                System.out.println("I");
+                break;
+            case 8:
+                System.out.println("I");
+                break;
+            case 9:
+                System.out.println("I");
+                break;
+            case 10:
+                System.out.println("I");
+                break;
+            default:
+                break;
+        }
     }
 }

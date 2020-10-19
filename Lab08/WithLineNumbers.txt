@@ -1,0 +1,7 @@
+ 1; Frankie owned a
+ 2; ferocious feline named
+ 3; Freddy as a pet.
+ 4; Freddy was funny and
+ 5; furry.
+ 6; His fur is bright red
+ 7; with black stripes.
