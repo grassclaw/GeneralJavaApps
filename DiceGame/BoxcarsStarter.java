@@ -1,9 +1,8 @@
-// Part a
 // PROGRAMMER: Aaron Escamilla
 // COURSE: CSC110(JAVA)
 // CLASS TIME: 10am
-// COMPLETION: 10/13/2020
-// ASSIGNMENT: Lab07 - DiceGame
+// COMPLETION: 11/18/2020
+// ASSIGNMENT: Project 3 - Boxcars
 /* PURPOSE: 
 //-----------------------------------------------------------------------------
 //  This is the application that uses the Boxcars class to have the game
@@ -36,6 +35,9 @@
     - System output paragraph with inserted answers
     - Test cases: 
       --> Part 1: 
+/*CLASSPATH
+    -BOXCARS --> PAIROFDICE --> DIE
+*/
 /*ERRORS
     -
 */
@@ -56,5 +58,16 @@ public class BoxcarsStarter {
           boxcarGame.init( name );      
           
           // Let the game be played      
-          boxcarGame.playGame();   }
+          boxcarGame.playGame();
+   }
+}
+
+private class Boxcars{
+    public static void init(String name){
+            System.out.println("Hello " + name);
+    }
+
+    public void playGame(){
+        System.out.println("Hello2");
+    }
 }
