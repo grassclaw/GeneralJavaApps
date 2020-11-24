@@ -61,13 +61,3 @@ public class BoxcarsStarter {
           boxcarGame.playGame();
    }
 }
-
-private class Boxcars{
-    public static void init(String name){
-            System.out.println("Hello " + name);
-    }
-
-    public void playGame(){
-        System.out.println("Hello2");
-    }
-}

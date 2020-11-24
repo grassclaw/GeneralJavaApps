@@ -4,7 +4,7 @@ Creates one Random object for the duraction o the game
 /*CLASSPATH
     PAIROFDICE --> DIE
 */
-/*INPUTS SECTION: Scanner utilized for user input
+/*INPUTS SECTION: 
     - named constants --
         - String --> 
         - char --> 
@@ -14,21 +14,19 @@ Creates one Random object for the duraction o the game
         - String --> 
         - char --> 
         - double --> 
-        - int    --> 
+        - int    --> calculated roll val passed in methods
     - named calculated variables --
         - String --> 
         - char --> 
         - double --> 
-        - int    --> 
+        - int    --> die face value, random number
 */
 /*PROCESSING SECTION
     - Part 1: 
     - Part 2: 
 */
 /*OUTPUTS
-    - System output paragraph with inserted answers
-    - Test cases: 
-      --> Part 1: 
+    - System output face value as string
 /*ERRORS
     -
 */
@@ -36,9 +34,31 @@ Creates one Random object for the duraction o the game
 import java.util.Random;
 
 public class Die {
-    public static Random generator = new Random();
-    public static void main(String[] args){
+    private int face; //have the current value of the die face
+    public static Random generator = new Random(); //this ensure same object is used in the game througout
 
+    public Die(){
+        face = 1; //just giving it a value to initalize
     }
+
+    public int roll(){
+        face = generator.nextInt(6) + 1;
+        return face;
+    }
+
+    public void setFace(int rollVal){
+        face =  rollVal;
+    }
+
+    public int getFace(){
+        return face;
+    }
+
+    public String toString(){
+        String res = Integer.toString(face);
+
+        return res;
+    }
+    
     
 }
