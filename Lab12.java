@@ -11,28 +11,28 @@
 /*INPUTS SECTION: Scanner utilized for user input
     - named constants --
         - String --> 
-        - char --> method choice
+        - char --> 
         - double --> 
         - int    -->  
     - named user input variables --
         - String --> 
-        - char --> 
+        - char --> method choice
         - double --> 
         - int    --> 
     - named calculated variables --
-        - String --> 
+        - String --> String formatted arrays "result" for printing
         - char --> 
         - double --> 
-        - int    --> 
+        - int    --> variables for loops, etc.
 */
 /*PROCESSING SECTION
-    - Part 1: 
-    - Part 2: 
+    - Part 1: Choose method
+    - Part 2: Print result
 */
 /*OUTPUTS
     - System output paragraph with inserted answers
     - Test cases: 
-      --> Part 1: 
+      --> Part 1: arrays are preset test cases
 /*ERRORS
     -
 */
