@@ -11,41 +11,43 @@
 /*INPUTS SECTION: Scanner utilized for user input
     - named constants --
         - String --> 
-        - char --> method choice
+        - char --> 
         - double --> 
         - int    -->  
     - named user input variables --
         - String --> 
-        - char --> 
+        - char --> method choice
         - double --> 
         - int    --> 
     - named calculated variables --
-        - String --> 
+        - String --> String formatted arrays "result" for printing
         - char --> 
         - double --> 
-        - int    --> 
+        - int    --> variables for loops, etc.
 */
 /*PROCESSING SECTION
-    - Part 1: 
-    - Part 2: 
+    - Part 1: Choose method
+    - Part 2: Print result
 */
 /*OUTPUTS
     - System output paragraph with inserted answers
     - Test cases: 
-      --> Part 1: 
+      --> Part 1: arrays are preset test cases
 /*ERRORS
     -
 */
 /***********************************************************************************************/
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class Lab12 {
     public static void main(String args[]) {
         char testCase = '1';
-        int[] n = { 3, 4, 5, 12, 41, 23, 33, 44 };
-        int[] m = { 1, 4, 13, 32, 22, 16, 31, 40, 51 };
+        int[] n = {3, 4, 5, 12, 41, 23, 33, 44};
+        int[] m = {1, 4, 13, 32, 22, 16, 31, 40, 51};
+        int[] o = {1, 4, 13, 32, 22, 16, 31, 40, 60};
+        int[] p = {3, 4, 5, 10};
+
+
         Scanner stdin = new Scanner(System.in);
 
         System.out.println("Welcome! Below are methods you can test for arrays :)");
@@ -66,14 +68,17 @@ public class Lab12 {
                     break;
                 case '2': // Compress
                     System.out.printf("Using array m: %s\n", printArray(m));
-                    System.out.printf("New array without Evens: %s\n", compress(m));
+                    System.out.printf("New compressed array: %s\n", compress(m));
                     break;
                 case '3':// Union
-                    System.out.printf("Using array n: %s", printArray(m));
-                    System.out.printf("Using array m: %s", printArray(n));
+                    System.out.printf("Using array n: %s\n", printArray(m));
+                    System.out.printf("Using array m: %s\n", printArray(o));
+                    System.out.printf("New joint array: %s\n", union(m, o));
                     break;
                 case '4':// Shuffle
-                    System.out.printf("Using array m: %s", printArray(m));
+                    System.out.printf("Using array m: %s\n", printArray(p));
+                    System.out.printf("Shuffled %d times before repeating original array!\n", shuffle(p));
+
                     break;
                 case '5': // exit
                     System.out.println("Goodbye!");
@@ -84,14 +89,53 @@ public class Lab12 {
             // hard to break out of a switch and while
             if (testCase == '5') {
                 break;
+            }else{
+                System.out.print("Please select which function you would like to test (1-5): ");
             }
-            System.out.print("Please select which function you would like to test (1-4): ");
-
         }
         stdin.close();
     }
 
-    private static String extractEvens(int arr[]) {
+    private static int shuffle(int[] arr){
+		Random randnum = new Random(); 
+        int rounds = 0;
+
+        int[] randArr = new int[arr.length];
+        while(!Arrays.equals(randArr, arr)){
+            for (int i=0; i<arr.length; i++) {
+                int randomPosition = randnum.nextInt(arr.length);
+                randArr[i] = arr[randomPosition];
+            }
+
+            rounds++;
+        }
+ 
+		return rounds;
+    }
+
+    private static  String union(int[] arr1, int[] arr2){
+        ArrayList<Integer> union = new ArrayList<Integer>();
+
+        for(int i = 0; i<arr1.length; i++){
+            union.add(arr1[i]);
+        }
+
+        for(int i = 0; i<arr2.length; i++){
+            if(!union.contains(arr2[i])){
+                union.add(arr2[i]);
+            }
+        }
+
+        int size = union.size();
+        int[] result = new int[size];
+        for (int i = 0; i < size; i++) {
+            result[i] = union.get(i).intValue();
+        }
+        return (printArray(result));
+
+    }
+
+    private static String extractEvens(int[] arr) {
         ArrayList<Integer> evens = new ArrayList<Integer>();
 
         for (int i = 0; i < arr.length; i++) {
@@ -108,22 +152,22 @@ public class Lab12 {
         return (printArray(result));
     }
 
-    private static String compress(int arr[]) {
-        ArrayList<Integer> evens = new ArrayList<Integer>();
+    private static String compress(int[] arr) {
+        ArrayList<Integer> compress = new ArrayList<Integer>();
 
         for (int i = 0; i < arr.length; i++) {
             if (i + 1 < arr.length) {
-                evens.add(arr[i] + arr[i + 1]);
+                compress.add(arr[i] + arr[i + 1]);
             } else {
-                evens.add(arr[i]);
+                compress.add(arr[i]);
             }
             i++;
         }
 
-        int size = evens.size();
+        int size = compress.size();
         int[] result = new int[size];
         for (int i = 0; i < size; i++) {
-            result[i] = evens.get(i).intValue();
+            result[i] = compress.get(i).intValue();
         }
         return (printArray(result));
     }
