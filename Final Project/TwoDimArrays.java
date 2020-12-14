@@ -1,4 +1,19 @@
-/* 
+// Part 1/5
+// PROGRAMMER: Aaron Escamilla
+// COURSE: CSC110(JAVA)
+// CLASS TIME: 11pm
+// COMPLETION: 12/10/2020
+// ASSIGNMENT: Final Project - DiceGame
+/* PURPOSE: This applicaiton 
+    - Demonstrate variable IPO layout (Input Section Processing Section, Output Section)
+    - Perform various array exercises as listed below
+*/
+
+/*   
+1. unique3x3 – accepts a 3x3 array of int and returns true if the array
+contains each of the nine values 1 through 9 exactly once, otherwise false.
+There are nine elements in the array, so each value (1..9) must appear in the
+array exactly once.  
 2. generateTable – accepts no formal parameters but returns a two-dimensional array of int of size 9X9 filled with random values
 between 1 and 9, inclusive.
 3. showTable – accepts a two-dimensional array of int of any size (all rows have the same number of columns) and displays the
@@ -28,14 +43,36 @@ are 49 sub-grids of size 3x3.
 4 5 6 7 8 9 1 2 3
 7 8 9 1 8 3 4 7 6 
 */
-/* 
-1. unique3x3 – accepts a 3x3 array of int and returns true if the array contains each of the nine values 1 through 9 exactly once,
-otherwise false. There are nine elements in the array, so each value (1..9) must appear in the array exactly once.
- */
+/*ERRORS
+    -NONE
+*/
+/***********************************************************************************************/
+import java.util.*;
+
 public class TwoDimArrays {
     final static int SIDES = 3;
-    public static void main(Stringp[] args){
+    final static int MIN = 1;
+    final static int MAX = 9;
+
+    public static void main(String[] args) {
+        // TEST CASES
         char testCase = '1';
+        int[][] m1 = { { 1, 2, 3 }, { 7, 8, 9 }, { 4, 5, 6 } };
+  /*       int[][] m2 = { { 2, 2, 3, 4, 5, 6, 7, 8, 9 }, { 4, 5, 3, 7, 6, 9, 1, 3, 3 }, { 7, 8, 3, 1, 5, 3, 3, 8, 6 },
+                { 1, 2, 3, 9, 2, 6, 7, 8, 9 }, { 4, 3, 6, 7, 4, 8, 1, 2, 3 }, { 7, 8, 9, 4, 6, 3, 4, 9, 6 },
+                { 1, 5, 3, 4, 8, 6, 7, 8, 9 }, { 4, 5, 6, 7, 8, 9, 1, 2, 3 }, { 7, 8, 9, 1, 8, 3, 4, 5, 6 } }; */
+        int[][] m3= {
+            {1,2,3,4,5,6,7,8,9},
+            {4,5,6,7,8,9,1,2,3},
+            {7,8,9,1,2,3,4,5,6},
+            {1,2,3,4,5,6,7,8,9},
+            {4,5,6,7,8,9,1,2,3},
+            {7,8,9,1,2,3,4,5,6},
+            {1,2,3,4,5,6,7,8,9},
+            {4,5,6,7,8,9,1,2,3},
+            {7,8,9,1,2,3,4,5,6},
+        };
+
         Scanner stdin = new Scanner(System.in);
 
         System.out.println("Welcome! Below are methods you can test for arrays :)");
@@ -45,63 +82,136 @@ public class TwoDimArrays {
         System.out.println("4 - findUnique3x3");
         System.out.println("5 - Exit");
         System.out.print("Please select which function you would like to test (1-5): ");
- 
+
         while (stdin.hasNextLine()) {
             testCase = stdin.nextLine().charAt(0);
+            Random rand = new Random();
+            int flip = rand.nextInt(2);
 
             switch (testCase) {
-                case '1':// Extract Evens
-                    System.out.printf("Using array m: %s\n", printArray(m));
-                    System.out.printf("New array without Evens: %s\n", extractEvens(m));
+                case '1':// Check if 3x3 matrix has all values 1-9
+                    int[][] m = m1;
+                    if (flip == 0) {
+                        m = m1;
+                    } else {
+                        m = generateTable(SIDES, SIDES);
+                    }
+                    System.out.println("Using array m: ");
+                    showTable(m);
+                    boolean s = unique3x3(m);
+                    System.out.printf("Is the 3x3 matrix uniquely 1-9: %b\n", s);
                     break;
-                case '2': // Compress
-                    System.out.printf("Using array m: %s\n", printArray(m));
-                    System.out.printf("New array without Evens: %s\n", compress(m));
+                case '2': // Generates a random 3x3 array values 1-9
+                    System.out.println("Generated the 3x3 array: ");
+                    showTable(generateTable(SIDES, SIDES));
                     break;
-                case '3':// Union
-                    System.out.printf("Using array n: %s", printArray(m));
-                    System.out.printf("Using array m: %s", printArray(n));
+                case '3':// Prints any size 2D array
+                    System.out.println("Showing array m: ");
+                    showTable(generateTable(SIDES, SIDES));
                     break;
-                case '4':// Shuffle
-                    System.out.printf("Using array m: %s", printArray(m));
+                case '4':// find unique 3x3 in the 9x9
+                    int[][] n = m2;
+                    int f = 0;
+                    if (flip == 0) {
+                        m = m3;
+                    } else {
+                        m = generateTable(9, 9);
+                    }
+                    System.out.println("Searching for unique grids in the following table: ");
+                    showTable(m);
+                    System.out.printf(" Found %d unique sub-grids.\n", findUnique3x3(m));
                     break;
                 case '5': // exit
                     System.out.println("Goodbye!");
                     break;
                 default:
-                    System.out.print("Please choose a valid option: ");
+                    System.out.print("Invalid option!\n");
             }
             // hard to break out of a switch and while
             if (testCase == '5') {
                 break;
             }
-            System.out.print("Please select which function you would like to test (1-4): ");
+            System.out.print("Please select which function you would like to test (1-5): ");
 
         }
         stdin.close();
     }
 
-    //unique3x3 checks the matrix is unique 1-9 valued
-    private static boolean unique3x3(int[][] mat3){
-        for(int i=0; i<SIDES; i++){
-            for(int j=0; j<SIDES; j++){
-
+    // unique3x3 checks the matrix is unique 1-9 valued
+    private static boolean unique3x3(int[][] mat3) {
+        int[] dedup = new int[9];
+        int arrCount = 0;
+        boolean u = true;
+        for (int i = 0; i < SIDES; i++) {
+            for (int j = 0; j < SIDES; j++) {
+                if (mat3[i][j] < 10 && mat3[i][j] > 0) {
+                    for (int n : dedup) {
+                        if (n == mat3[i][j]) {
+                            return false;
+                        }
+                    }
+                    if (u = true) {
+                        dedup[arrCount] = mat3[i][j];
+                        arrCount++;
+                    }
+                } else {
+                    u = false;
+                }
             }
         }
-        return true;
+        return u;
     }
 
-    private static showTable(){
-
+    private static void showTable(int[][] m) {
+        // Loop through all rows
+        for (int i = 0; i < m.length; i++) {
+            System.out.print("{");
+            // Loop through all elements of current row
+            for (int j = 0; j < m[i].length; j++) {
+                System.out.print(m[i][j]);
+                if (j != m[i].length - 1) {
+                    System.out.print(" ");
+                }
+            }
+            System.out.print("}\n");
+        }
     }
 
-    private int[][] generateTable(){
-        return true;
+    private static int[][] generateTable(int side1, int side2) {
+        int m[][] = new int[side1][side2];
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m[i].length; j++) {
+                m[i][j] = (int) (Math.random() * MAX);
+            }
+        }
+        return m;
     }
-    
-    private static findUnique3x3(){
 
+    private static int findUnique3x3(int[][] m) {
+        int[][] n = new int[3][3];
+        boolean u = false;
+        int uCount = 0;
+        // Primary loop for checking 9x9 matrix value by value
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                // loop for creating minor 3x3 matrices
+                int r = 0;// row iterator for 3x3 matrix
+                for (int k = i; k < i + 3; k++) {
+                    int c = 0; // column iterator for 3x3 matrix
+                    for (int l = j; l < j + 3; l++) {
+                        n[r][c] = m[k][l];
+                        c++;
+                    }
+                    r++;
+                }
+                u = unique3x3(n);
+                if (u) {
+                    System.out.println("Unique 3x3 at [" + i + "," + j + "]");
+                    uCount++;
+                }
+                u = false;
+            }
+        }
+        return uCount;
     }
-
-
 }
